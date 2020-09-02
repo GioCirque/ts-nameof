@@ -31,3 +31,35 @@ module.exports = {
     }
 };
 ```
+
+For ts-jest 27, and to supress the warning in ts-jest 26, use the Object form:
+
+```jsonc
+{
+  // ...
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        astTransformers: {
+          "before": ["ts-nameof"]
+        }
+      }
+    }
+  }
+}
+```
+
+...or in _jest.config.js_...
+
+```ts
+module.exports = {
+  // ...
+  globals: {
+    'ts-jest': {
+      astTransformers: {
+        before: ['ts-nameof'],
+      },
+    }
+  }
+};
+```
